@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+
+
+    <div id="app">
+        <h3>{{title}}</h3>
+        <button>{{buttonTitle}}</button>
+        <p>{{text}}</p>
+        <input v-bind:placeholder="inputtext" v-bind:data-id="title">
+        <br><br>
+        <p v-html="details"></p>
+    </div>
+
+<script>
+
+    new Vue({
+        el: "#app",
+
+        data: {
+            title: "maltepe üniversitesi",
+            buttonTitle: "Tıklayın.",
+            text: "lorem ipsum dola ",
+            inputtext: "giriniz lütfen",
+            details: "<b>selam</b>"
+        } 
+    });
+
+</script>
+
+</body>
+
+</html>

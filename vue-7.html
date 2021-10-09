@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in list">{{item}}</li>
+
+        </ul>
+        <hr>
+        <div v-for="(value, key) in personel">
+
+          {{ key + " " + value}}
+        </div>
+        <hr><br>
+
+
+        <input type="text" v-model="miktar">
+        <div v-for="item in Urunler" class="item">
+            <span> {{item.title}} - {{item.count}}</span>
+            <button :disabled="item.count <= 0" @click="miktar2(item)">Satıldı</button>
+            </div>
+    </div>
+    <script>
+
+        new Vue({
+            el: "#app",
+            data: {
+                miktar: 0,
+                list: ["Elma", "Armut", "Kiraz"],
+                personel: {
+                    name: "Gökhan",
+                    lastname: "Kandemir",
+                    email: "yusufcanvar@gmail.com"
+                },
+                Urunler:[
+                {
+                    title: "kalem",
+                    price: 3,
+                    count: 300
+                },
+                {
+                    title: "silgi",
+                    price: 1,
+                    count: 100
+                },
+                {
+                    title: "uç",
+                    price: 0.50,
+                    count: 200
+                }
+            ]
+            },
+            methods: {
+                miktar2 (item){
+                    item.count = item.count - this.miktar
+                }
+            }
+
+        })
+
+    </script>
+
+</body>
+
+</html>
